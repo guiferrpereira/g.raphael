@@ -84,8 +84,9 @@
                 X = x + gutter + (valuesx[i] - minx) * kx,
                 Y = y + height - gutter - (valuesy[i] - miny) * ky;
 
-            sym && R[i] && series.push(paper[sym](X, Y, R[i]).attr({ fill: opts.heat ? colorValue(R[i], maxR) : chartinst.colors[0], "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none" }));
-        }
+            // sym && R[i] && series.push(paper[sym](X, Y, R[i]).attr({ fill: opts.heat ? colorValue(R[i], maxR) : chartinst.colors[0], "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none" }));
+        		sym && R[i] && series.push(paper[sym](X, Y, R[i]).attr({ fill: opts.colors ? opts.colors[valuesy[i] - 1] : opts.heat ? colorValue(R[i], maxR) : chartinst.colors[0], "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none" }));
+				}
 
         var covers = paper.set();
 
